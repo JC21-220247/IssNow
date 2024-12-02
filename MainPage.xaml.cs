@@ -33,8 +33,14 @@ namespace IssNow
             var client = new IssApiClient();
             IssPositionResponse result = await client.GetIssPositionAsync();
 
-            LatitudeText.Text = result.Position.Latitude;
-            LongitudeText.Text= result.Position.Longitude;
+            LatitudeText.Text = result.Position.LatitudeAbsolute
+                                + " " + result.Position.LatitudeDirection;
+            LongitudeText.Text = result.Position.LongitudeAbsolute
+                                + " " + result.Position.LongitudeDirection;
+
+
+            // LatitudeText.Text = result.Position.Latitude; Latitudeは生データなので[+ , -]が表示される
+            //LongitudeText.Text= result.Position.Longitude;
 
         }
     }

@@ -24,7 +24,7 @@ namespace IssNow.api
             {
                 if (double.TryParse(Latitude, out double lat))
                 {
-                    return Math.Abs(lat);
+                    return Math.Abs(lat); //Abs:絶対値を返す
                 }
                 return 0; // デフォルト値（必要に応じて調整）
             }
@@ -50,7 +50,7 @@ namespace IssNow.api
             {
                 if (double.TryParse(Latitude, out double lat))
                 {
-                    return lat >= 0 ? "S" : "N";
+                    return lat >= 0 ? "S" : "N"; //SかNを返すようにする
                 }
                 return "Invalid"; // エラー時の値
             }
